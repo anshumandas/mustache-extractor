@@ -324,6 +324,7 @@ function print(match, current, pointerStack, nameStack) {
       let t = current[0] || {};
       current = t;
     }
+    if(!_.isPlainObject(current)) current = {};
     if(!current[match]) {
       current[match] = {};
     }
