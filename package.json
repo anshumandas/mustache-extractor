@@ -1,0 +1,33 @@
+{
+  "name": "mustache-extractor",
+  "version": "1.0.0",
+  "description": "Utility for those who use Mustache templating engine that extracts the input model used from the template",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.5.0",
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {
+    "my-mustache-wax": "^1.0.7",
+    "mustache": "^3.0.1",
+    "jest": "^25.2.7",
+    "jest-similar": "^1.0.5"
+  },
+  "scripts": {
+    "start": "node -e 'require(`.`).run()' 'your template folder'",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anshumandas/mustache-extractor.git"
+  },
+  "keywords": [
+    "Mustache"
+  ],
+  "author": "Anshuman Das",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anshumandas/mustache-extractor/issues"
+  },
+  "homepage": "https://github.com/anshumandas/mustache-extractor#readme"
+}
