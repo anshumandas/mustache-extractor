@@ -8,6 +8,8 @@ There are times however that you need to understand the templates better for the
 
 Only in such times, should we need to extract our mustache using this tool...
 
+This can be useful in understanding templates of projects such as (openapi-generator)[https://github.com/OpenAPITools/openapi-generator]
+
 # Solution
 This is a simple helper utility for Mustache in NodeJs which:
 - Parses all .mustache files in a specified folder and its sub-folders
@@ -33,7 +35,7 @@ should instead be
 parent = {parent_name: "A", children: [{child_name:"B"}]}
 ```
 - use has_ prefix to check for nullability may not be needed if above is followed as then we do not need to care about parent and child scopes
-- use is_ as prefix for booleans to distinguish between nullability check and boolean checks. 
+- use is_ as prefix for booleans to distinguish between nullability check and boolean checks.
 - __ prefix used to define function names
 
 These can then be used to extract the model in a better manner as well
