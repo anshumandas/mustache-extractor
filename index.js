@@ -13,12 +13,17 @@ function processFolder(input, output) {
   //TODO use the regex to get the template tag structure
   let map = findMustache(Path.resolve(input));
   let partials = removePartials(map);
+  let merged = {};
   for (var path in map) {
     let model = parse(map[path], partials, {}, [], [], myHeuristics);
+    _.merge(merged, model);
     let outFolder = output || Path.dirname(path);
     let outFile = Path.basename(path) + ".spec.yaml";
     writeAndLog(outFolder, outFile, model);
   }
+  let outFolder = output || '.';
+  let outFile = "mergedFile.spec.yaml";
+  writeAndLog(outFolder, outFile, merged);
 }
 
 function safeYaml(model) {

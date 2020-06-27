@@ -1,6 +1,6 @@
 {
   "name": "mustache-extractor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility for those who use Mustache templating engine that extracts the input model used from the template",
   "main": "index.js",
   "dependencies": {
@@ -14,7 +14,7 @@
     "jest-similar": "^1.0.5"
   },
   "scripts": {
-    "start": "node -e 'require(`.`).run()' '../openapi-generator'",
+    "start": "node -e 'require(`.`).run()' '../openapi-generator' 'extracted'",
     "test": "jest"
   },
   "repository": {
