@@ -35,7 +35,7 @@ should instead be
 parent = {parent_name: "A", children: [{child_name:"B"}]}
 ```
 - use has_ prefix to check for nullability may not be needed if above is followed as then we do not need to care about parent and child scopes
-- use is_ as prefix for booleans to distinguish between nullability check and boolean checks.
+- use ? as suffix for booleans to distinguish between nullability check and boolean checks.
 - __ prefix used to define function names
 
 These can then be used to extract the model in a better manner as well

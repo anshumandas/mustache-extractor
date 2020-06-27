@@ -361,7 +361,7 @@ function myHeuristics(action, match, current, pointerStack, nameStack) {
     return true;
   }
   //Heuristic 2:
-  if(match.startsWith("is_") && current) {
+  if(match.endsWith("?") && current) {
     if(!current[match] && (action == "positive" || action == "negative")) {
       current[match] = {};
       if(PrintDescription) {

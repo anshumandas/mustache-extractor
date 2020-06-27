@@ -65,12 +65,12 @@ describe('test mustache gen and the template extraction for nested', () => {
 });
 
 describe('test mustache gen and the template extraction for nested with heuristic', () => {
-  let template = "Hello {{^is_hidden}}{{#__upperFirst}}{{name.hello}}{{/__upperFirst}}{{/is_hidden}}";
+  let template = "Hello {{^hidden?}}{{#__upperFirst}}{{name.hello}}{{/__upperFirst}}{{/hidden?}}";
   it('mustache gen', () => {
-    expect(applyMustache(template, {'name': {'hello':'world'}, 'is_hidden': false})).toEqual("Hello World");
+    expect(applyMustache(template, {'name': {'hello':'world'}, 'hidden?': false})).toEqual("Hello World");
   });
   it('extraction', () => {
-    expect(extractMustache(template)).toBeSimilar({'name': {'hello': 'value'}, '__upperFirst':'function', 'is_hidden': 'boolean'});
+    expect(extractMustache(template)).toBeSimilar({'name': {'hello': 'value'}, '__upperFirst':'function', 'hidden?': 'boolean'});
   });
 });
 

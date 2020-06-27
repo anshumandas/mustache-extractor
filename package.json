@@ -1,6 +1,6 @@
 {
   "name": "mustache-extractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utility for those who use Mustache templating engine that extracts the input model used from the template",
   "main": "index.js",
   "dependencies": {
