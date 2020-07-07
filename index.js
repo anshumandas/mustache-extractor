@@ -1,10 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
-const FS = require('fs-extra');
-const YAML = require('js-yaml');
+const Fs = require('fs-extra');
+const Yaml = require('js-yaml');
 const Path = require('path');
 const Chalk = require('chalk');
+
 const MustacheExt = '.mustache';
 const PrintDescription = false;
 const Desc = "__description__";
@@ -27,27 +28,27 @@ function processFolder(input, output) {
 }
 
 function safeYaml(model) {
-  let yml = YAML.safeDump(model, { indent: 2, lineWidth: -1, noRefs: true, skipInvalid: true });
+  let yml = Yaml.safeDump(model, { indent: 2, lineWidth: -1, noRefs: true, skipInvalid: true });
   //convert __comment: to #comment
   return yml;//.replace(/__comment:/g, "# ");
 }
 
 function writeAndLog(filepath, filename, contents) {
   //split file path and mkdirs if not existing
-  FS.mkdirpSync(filepath, { recursive: true }, (err) => {
+  Fs.mkdirpSync(filepath, { recursive: true }, (err) => {
     if (err) throw err;
   });
 
   var fpath = Path.join(filepath, filename);
-  FS.writeFileSync(fpath, safeYaml(contents));
+  Fs.writeFileSync(fpath, safeYaml(contents));
 }
 
 function findMustache(rootPath) {
   let map = {}; //key is the path, val is the content
-  if(FS.statSync(rootPath).isFile()) {
+  if(Fs.statSync(rootPath).isFile()) {
     processFile(rootPath, map);
-  } if(FS.statSync(rootPath).isDirectory()) {
-    FS
+  } if(Fs.statSync(rootPath).isDirectory()) {
+    Fs
      .readdirSync(rootPath)
      .forEach((file) => {
        let path = Path.join(rootPath, file);
@@ -58,9 +59,9 @@ function findMustache(rootPath) {
 }
 
 function processFile(path, map) {
-  if(FS.statSync(path).isFile()) {
+  if(Fs.statSync(path).isFile()) {
     if(path.endsWith(MustacheExt)) {
-      map[path] = FS.readFileSync(path, 'utf8');
+      map[path] = Fs.readFileSync(path, 'utf8');
     }
   } else {
     _.merge(map, findMustache(path));
